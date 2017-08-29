@@ -249,7 +249,7 @@ export function getGlobal(globalName) {
     }
 }
 export function setGlobal(globalName) {
-    checkDependentAExprs(globalRef, globalName);
+    checkDependentAExprs(window, globalName); // globalRef
 }
 
 export default aexpr;
