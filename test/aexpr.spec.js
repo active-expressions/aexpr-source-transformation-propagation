@@ -167,19 +167,16 @@ describe('Propagation Logic', function() {
             expect(spy12).not.to.be.called;
             expect(spy23).not.to.be.called;
 
-            obj1.val = 10;
             setMember(obj1, "val", 10);
 
             expect(spy12.withArgs(12)).to.be.calledOnce;
             expect(spy23).not.to.be.called;
 
-            obj2.val = 20;
             setMember(obj2, "val", 20);
 
             expect(spy12.withArgs(30)).to.be.calledOnce;
             expect(spy23.withArgs(23)).to.be.calledOnce;
 
-            obj3.val = 30;
             setMember(obj3, "val", 30);
 
             expect(spy12.withArgs(30)).to.be.calledOnce;
