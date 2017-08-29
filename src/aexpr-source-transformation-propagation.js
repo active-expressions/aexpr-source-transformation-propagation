@@ -238,14 +238,14 @@ export function setLocal(scope, varName) {
     checkDependentAExprs(scope, varName);
 }
 
-const globalRef = typeof window !== "undefined" ? window : // browser tab
-    (typeof self !== "undefined" ? self : // web worker
-        global); // node.js
+// const globalRef = typeof window !== "undefined" ? window : // browser tab
+//     (typeof self !== "undefined" ? self : // web worker
+//         global); // node.js
 
 export function getGlobal(globalName) {
     let currentAExpr = aexprStack.top();
     if(currentAExpr) {
-        aexprStorage.associate(currentAExpr, globalRef, globalName);
+        aexprStorage.associate(currentAExpr, window, globalName); // globalRef
     }
 }
 export function setGlobal(globalName) {
